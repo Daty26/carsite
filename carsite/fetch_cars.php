@@ -1,7 +1,4 @@
 <?php
-    session_start();
-
-    
   include_once "header.php";
   include_once "inc/db.inc.php";
 

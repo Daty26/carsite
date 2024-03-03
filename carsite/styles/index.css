@@ -2,6 +2,7 @@
 
 body{
     margin: 0;
+    scroll-behavior: smooth;
     padding: 0;
     font-family: "Montserrat", sans-serif;
 }
@@ -10,6 +11,8 @@ ul{
 }
 a{
     text-decoration: none;
+    scroll-behavior: smooth;
+    transition: all 3s linear;
 }
 .navbar{
     padding: 1rem 2rem;

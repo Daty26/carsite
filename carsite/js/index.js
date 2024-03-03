@@ -61,28 +61,39 @@ function validateForm() {
     return true; 
   }
     
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
-carForms.forEach((form) =>{
-    var brandSelect = form.querySelector('.brand-select');
-    var modelSelect = form.querySelector('.model-select');
-    brandSelect.addEventListener('change', function() {
-        var brand = this.value;
-        
-        modelSelect.innerHTML = '<option value="">Выберите модель</option>';
-    
-        if(brand == 'Toyota'){
-            addModels(modelSelect, ['Corolla', 'Camry', 'Rav4'])
-        }else if(brand == 'Honda'){
-            addModels(modelSelect, ['Civic', 'Accord', 'CR-V'])
-        }else if(brand == 'BMW'){
-            addModels(modelSelect, ['3 Series', '5 Series', 'X5']) 
-        }else if(brand == 'Mercedes'){
-            addModels(modelSelect, ['C-Class', 'E-Class', 'GLC'])
-        }else if(brand == 'Lexus'){
-            addModels(modelSelect, ['NX', 'GX', 'RX','LX', 'EX'])
-        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    carForms.forEach((form) => {
+        var brandSelect = form.querySelector('.brand-select');
+        var modelSelect = form.querySelector('.model-select');
+        brandSelect.addEventListener('change', function() {
+            var brand = this.value;
+
+            modelSelect.innerHTML = '<option value="">Выберите модель</option>';
+
+            if (brand == 'Toyota') {
+                addModels(modelSelect, ['Corolla', 'Camry', 'Rav4'])
+            } else if (brand == 'Honda') {
+                addModels(modelSelect, ['Civic', 'Accord', 'CR-V'])
+            } else if (brand == 'BMW') {
+                addModels(modelSelect, ['3 Series', '5 Series', 'X5'])
+            } else if (brand == 'Mercedes') {
+                addModels(modelSelect, ['C-Class', 'E-Class', 'GLC'])
+            } else if (brand == 'Lexus') {
+                addModels(modelSelect, ['NX', 'GX', 'RX', 'LX', 'EX'])
+            }
+        })
     })
-})
+});
 function addModels(selectElement, models) {
     models.forEach(model => {
         var option = document.createElement('option');

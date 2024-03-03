@@ -53,6 +53,7 @@
                         <div class="allert">
 
                             <?php
+                            if(isset($_GET["error"])){
                                 if (substr($_GET["error"], -2) == "li") {
                                     ?>
                                     <script>
@@ -75,6 +76,7 @@
                                             echo "<p class='red'>Пожайлуста войдите!</p>";
                                         }
                                     }
+                            }
                             ?> 
                         </div>
                     </form>
@@ -189,11 +191,11 @@
                         <div class="field select">
                             <select name="brand" class="form-select carAddSelect brand-select">
                                 <option value="" >Выберите бренд</option>
-                                <option value="toyota">Toyota</option>
-                                <option value="honda">Honda</option>
-                                <option value="bmw">BMW</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="lexus">Lexus</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Bmw">BMW</option>
+                                <option value="Mercedes">Mercedes</option>
+                                <option value="Lexus">Lexus</option>
                             </select>
                         </div>
                         <div class="field select">
@@ -304,18 +306,18 @@
                 ?>
                 <?php
                     if(isset($_SESSION["usersid"])){
-                ?>
-                <li class="sub-item add-car" onclick="fadeInCar()">
-                    <span class="si-item"> <i class='bx bx-plus-circle'></i></span>
-                    <p>Добавить</p>
-                </li>
-                <a href="inc/logout.inc.php"> 
-                    <li class="sub-item log-out">
-                        <span class="si-item"> <i class='bx bx-log-out-circle' ></i></span>
-                        <p>Выйти</p>
+                        echo "<li class='sub-item add-car' onclick='fadeInCar()'>
+                        <span class='si-item'> <i class='bx bx-plus-circle'></i></span>
+                        <p>Добавить</p>
                     </li>
-                </a>
-              <?}?>
+                    <a href='inc/logout.inc.php'> 
+                        <li class='sub-item log-out'>
+                            <span class='si-item'> <i class='bx bx-log-out-circle' ></i></span>
+                            <p>Выйти</p>
+                        </li>
+                    </a>
+                    ";
+                }?>
             </ul>
           </nav>
         </div>
